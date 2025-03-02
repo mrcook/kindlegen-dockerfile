@@ -1,14 +1,7 @@
-# KindleGen Dockerfile for macOS (M2, M3, M4)
+# KindleGen Dockerfile for Apple Silicon MacBook (M2, M3, M4)
 
 Here is a Dockerfile for running a Linux version of Amazon's `kindlegen`
 program (32-bit Intel) on an Apple ARM computer: M1, M2, M3, and M4.
-
-**NOTE: this repository does not contain a copy of the `kindlegen` binary.**
-
-You will need to start docker with the `x86_64` architecture and with Apple
-Rosetta enabled. If you're using `colima` this can be done with:
-
-    colima start --cpu 4 --memory 4 --arch x86_64 --vm-type vz --vz-rosetta
 
 
 ## What is KindleGen?
@@ -18,7 +11,11 @@ KindleGen will convert an EPUB ebook to the Amazon ebook format.
 
 ## Build the Container
 
-First, build the Docker image:
+There are different ways to run Docker on macOS, but I use `colima`:
+
+    colima start
+
+Then build the Docker image:
 
     docker build -t kindlegen .
 
